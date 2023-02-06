@@ -3,3 +3,11 @@ export interface IProduct {
   name: string,
   amount: string,
 }
+
+export interface IUsers { 
+  id?: number,
+  username: string,
+  vocation: string,
+  level: number,
+  password: string
+}
