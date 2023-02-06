@@ -2,6 +2,12 @@ import { ResultSetHeader } from 'mysql2';
 import connection from './connection';
 // import { IProduct } from '../interfaces';
 
+const findAll = async (): Promise<ResultSetHeader> => {
+  const sqlQuery = 'SELECT id, name, amount, order_id AS orderID FROM Trybesmith.products';
+  const [result] = await connection.execute<ResultSetHeader>(sqlQuery);
+  return result;
+};
+
 const create = async (name : string, amount: string) : Promise<ResultSetHeader> => {
   const sqlQuery = 'INSERT INTO Trybesmith.products (name, amount) VALUES (?, ?)';
   const [result] = await connection
@@ -12,5 +18,6 @@ const create = async (name : string, amount: string) : Promise<ResultSetHeader> 
 };
 
 export default {
+  findAll,
   create,
 };
