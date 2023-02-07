@@ -16,6 +16,11 @@ const generateToken = (user: IUsers): string => {
   }
 };
 
+const findAll = async () => {
+  const result = await usersModel.findAll();
+  return result;
+};
+
 const create = async (user: IUsers): Promise<string> => {
   const { username, vocation, level, password } = user;
   const result = await usersModel.create(user);
@@ -31,5 +36,6 @@ const create = async (user: IUsers): Promise<string> => {
 };
 
 export default {
+  findAll,
   create,
 };

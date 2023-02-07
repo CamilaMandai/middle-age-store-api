@@ -3,7 +3,7 @@ import usersController from '../controllers/users.controller';
 
 const router = express.Router();
 
-// router.get('/', (req, res) => res.send('olá'));
+router.get('/', usersController.findAll);
 router.post('/', usersController.create);
 
 export default router;

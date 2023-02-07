@@ -12,8 +12,9 @@ const create = async (name : string, amount: string) : Promise<ResultSetHeader> 
   const sqlQuery = 'INSERT INTO Trybesmith.products (name, amount) VALUES (?, ?)';
   const [result] = await connection
     .execute<ResultSetHeader>(sqlQuery, [name, amount]);
-  // const newProduct = await connection
-  //   .execute(`SELECT id, name, amount FROM Trybesmith.products WHERE id=${insertId}`);
+  // const [newProduct] = await connection
+  //   .execute(`SELECT id, name, amount FROM Trybesmith.products WHERE id=${result.insertId}`);
+  // console.log(newProduct);
   return result;
 };
 
